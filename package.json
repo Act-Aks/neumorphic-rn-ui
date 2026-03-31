@@ -1,15 +1,33 @@
 {
-  "name": "neumorphic-rn-ui",
+  "name": "@act-aks/neumorphic-rn-ui",
   "version": "1.0.0",
-  "main": "expo-router/entry",
+  "description": "Neumorphic UI component library for React Native",
+  "main": "./lib/commonjs/index.js",
+  "module": "./lib/module/index.js",
+  "types": "./lib/typescript/src/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./lib/module/index.js",
+      "require": "./lib/commonjs/index.js",
+      "types": "./lib/typescript/src/index.d.ts"
+    }
+  },
+  "files": [
+    "lib",
+    "src",
+    "!**/__tests__",
+    "!**/__fixtures__",
+    "!**/__mocks__"
+  ],
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
+    "build": "bob build",
     "check": "ultracite check",
     "fix": "ultracite fix",
-    "prepare": "lefthook install"
+    "prepare": "lefthook install && bob build"
   },
   "dependencies": {
     "@expo/vector-icons": "15.1.1",
@@ -31,14 +49,60 @@
     "tailwind-variants": "3.2.2",
     "tailwindcss": "4.2.2"
   },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*",
+    "tailwind-variants": "*",
+    "tailwindcss": "*",
+    "@niibase/uniwind": "*"
+  },
   "devDependencies": {
     "@biomejs/biome": "2.4.10",
+    "@react-native-builder-bob/build": "0.35.3",
+    "@semantic-release/changelog": "6.0.3",
+    "@semantic-release/git": "10.0.1",
     "@types/react": "19.2.14",
     "lefthook": "2.1.4",
     "lint-staged": "16.4.0",
+    "semantic-release": "24.2.5",
     "typescript": "6.0.2",
     "ultracite": "7.4.0"
   },
-  "private": true,
-  "packageManager": "bun@1.3.11"
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      [
+        "commonjs",
+        {
+          "esm": false
+        }
+      ],
+      [
+        "module",
+        {
+          "esm": true
+        }
+      ],
+      [
+        "typescript",
+        {
+          "project": "tsconfig.build.json"
+        }
+      ]
+    ]
+  },
+  "license": "MIT",
+  "packageManager": "bun@1.3.11",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/act-aks/neumorphic-rn-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/act-aks/neumorphic-rn-ui/issues"
+  },
+  "homepage": "https://github.com/act-aks/neumorphic-rn-ui#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
 }

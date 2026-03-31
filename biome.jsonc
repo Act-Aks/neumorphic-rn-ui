@@ -5,6 +5,9 @@
     "rules": {
       "style": {
         "useFilenamingConvention": "off"
+      },
+      "performance": {
+        "noBarrelFile": "off"
       }
     }
   }
