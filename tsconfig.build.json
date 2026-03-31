@@ -2,8 +2,6 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "declaration": true,
-    "declarationDir": "./lib/typescript",
-    "outDir": "./lib",
     "rootDir": "./src",
     "noEmit": false
   },
@@ -11,6 +9,7 @@
   "include": [
     "src/components/**/*.ts",
     "src/components/**/*.tsx",
-    "src/index.ts"
+    "src/index.ts",
+    "src/typings/*.d.ts"
   ]
 }
