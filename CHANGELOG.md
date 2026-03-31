@@ -1,3 +1,10 @@
+## 🚀 What's Changed
+
+
+### 🐛 Bug Fixes
+
+- **ci,release:** upgrade actions and Node version, enhance release notes ([`b1cb886`](https://github.com/act-aks/neumorphic-rn-ui/commit/b1cb88643c85d39b5ae450f9ec61ad4c7c77fe9b))
+
 <div align="center">
 
 # 📋 Changelog

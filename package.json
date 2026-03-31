@@ -1,6 +1,6 @@
 {
   "name": "@act-aks/neumorphic-rn-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Neumorphic UI component library for React Native",
   "main": "./lib/commonjs/index.js",
   "module": "./lib/module/index.js",
