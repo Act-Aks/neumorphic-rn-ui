@@ -2,7 +2,32 @@
   "branches": ["main"],
   "plugins": [
     "@semantic-release/commit-analyzer",
-    "@semantic-release/release-notes-generator",
+    [
+      "@semantic-release/release-notes-generator",
+      {
+        "preset": "conventionalcommits",
+        "presetConfig": {
+          "types": [
+            { "type": "feat", "section": "✨ New Features", "hidden": false },
+            { "type": "fix", "section": "🐛 Bug Fixes", "hidden": false },
+            { "type": "perf", "section": "⚡ Performance", "hidden": false },
+            { "type": "refactor", "section": "♻️  Refactors", "hidden": false },
+            { "type": "docs", "section": "📖 Documentation", "hidden": false },
+            { "type": "style", "section": "🎨 Styles", "hidden": false },
+            { "type": "test", "section": "🧪 Tests", "hidden": false },
+            { "type": "build", "section": "🏗️  Build System", "hidden": false },
+            { "type": "ci", "section": "🔁 CI / CD", "hidden": false },
+            { "type": "chore", "section": "🔧 Chores", "hidden": true },
+            { "type": "revert", "section": "⏪ Reverts", "hidden": false }
+          ]
+        },
+        "writerOpts": {
+          "headerPartial": "## 🚀 What's Changed\n\n",
+          "commitPartial": "- {{#if scope}}**{{scope}}:** {{/if}}{{subject}} ([`{{shortHash}}`]({{@root.host}}/{{@root.owner}}/{{@root.repository}}/commit/{{hash}}))\n",
+          "footerPartial": "{{#if noteGroups}}\n---\n\n### ⚠️ Breaking Changes\n\n{{#each noteGroups}}{{#each notes}}- {{text}}\n{{/each}}{{/each}}\n{{/if}}\n\n---\n\n### 👥 Contributors\n\nThanks to everyone who contributed to this release 🙌\n\n{{#each commitGroups}}{{#each commits}}{{#if author.name}}- 🧑‍💻 **{{author.name}}**{{/if}}\n{{/each}}{{/each}}\n\n---\n\n_Full diff: [{{previousTag}}...{{currentTag}}]({{@root.host}}/{{@root.owner}}/{{@root.repository}}/compare/{{previousTag}}...{{currentTag}})_\n"
+        }
+      }
+    ],
     "@semantic-release/changelog",
     [
       "@semantic-release/npm",

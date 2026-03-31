@@ -68,6 +68,7 @@
     "@biomejs/biome": "2.4.10",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/git": "10.0.1",
+    "conventional-changelog-conventionalcommits": "8.0.0",
     "@types/react": "19.2.14",
     "lefthook": "2.1.4",
     "lint-staged": "16.4.0",
